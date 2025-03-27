@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8" />
+<meta name="Generator" content="Drupal 8 (https://www.drupal.org)" />
+<meta name="MobileOptimized" content="width" />
+<meta name="HandheldFriendly" content="true" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="shortcut icon" href="https://www.sos.alabama.gov/themes/custom/sos/favicon.ico" type="image/vnd.microsoft.icon" />
+<link rel="stylesheet" href="https://www.sos.alabama.gov/core/themes/stable/css/system/components/ajax-progress.module.css?octsyb" media="all" />
+<link rel="stylesheet" href="https://www.sos.alabama.gov/core/themes/stable/css/system/components/autocomplete-loading.module.css?octsyb" media="all" />
+<link rel="stylesheet" href="https://www.sos.alabama.gov/core/themes/stable/css/system/components/fieldgroup.module.css?octsyb" media="all" />
+<link rel="stylesheet" href="https://www.sos.alabama.gov/core/themes/stable/css/system/components/container-inline.module.css?octsyb" media="all" />
+<link rel="stylesheet" href="https://www.sos.alabama.gov/core/themes/stable/css/system/components/clearfix.module.css?octsyb" media="all" />
+<link rel="stylesheet" href="https://www.sos.alabama.gov/core/themes/stable/css/system/components/details.module.css?octsyb" media="all" />
+<link rel="stylesheet" href="https://www.sos.alabama.gov/core/themes/stable/css/system/components/hidden.module.css?octsyb" media="all" />
+<link rel="stylesheet" href="https://www.sos.alabama.gov/core/themes/stable/css/system/components/item-list.module.css?octsyb" media="all" />
+<link rel="stylesheet" href="https://www.sos.alabama.gov/core/themes/stable/css/system/components/js.module.css?octsyb" media="all" />
+<link rel="stylesheet" href="https://www.sos.alabama.gov/core/themes/stable/css/system/components/nowrap.module.css?octsyb" media="all" />
+<link rel="stylesheet" href="https://www.sos.alabama.gov/core/themes/stable/css/system/components/position-container.module.css?octsyb" media="all" />
+<link rel="stylesheet" href="https://www.sos.alabama.gov/core/themes/stable/css/system/components/progress.module.css?octsyb" media="all" />
+<link rel="stylesheet" href="https://www.sos.alabama.gov/core/themes/stable/css/system/components/reset-appearance.module.css?octsyb" media="all" />
+<link rel="stylesheet" href="https://www.sos.alabama.gov/core/themes/stable/css/system/components/resize.module.css?octsyb" media="all" />
+<link rel="stylesheet" href="https://www.sos.alabama.gov/core/themes/stable/css/system/components/sticky-header.module.css?octsyb" media="all" />
+<link rel="stylesheet" href="https://www.sos.alabama.gov/core/themes/stable/css/system/components/tabledrag.module.css?octsyb" media="all" />
+<link rel="stylesheet" href="https://www.sos.alabama.gov/core/themes/stable/css/system/components/tablesort.module.css?octsyb" media="all" />
+<link rel="stylesheet" href="https://www.sos.alabama.gov/core/themes/stable/css/system/components/tree-child.module.css?octsyb" media="all" />
+<link rel="stylesheet" href="https://www.sos.alabama.gov/themes/custom/sos/css/reset.css?octsyb" media="all" />
+<link rel="stylesheet" href="https://www.sos.alabama.gov/themes/custom/sos/css/style.css?octsyb" media="all" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" media="all" />
+<link rel="stylesheet" href="/css/ai-sos.css" media="all" />
+<!--[if lte IE 8]>
+<script src="https://www.sos.alabama.gov//core/assets/vendor/html5shiv/html5shiv.min.js?v=3.7.3"></script>
+<![endif]-->
+<script src="https://www.sos.alabama.gov//core/assets/vendor/jquery/jquery.min.js?v=2.1.4"></script>
+<script src="https://www.sos.alabama.gov//themes/custom/sos/js/main.js?octsyb"></script>
+<title>Business Entity Records | Alabama Secretary of State</title>
+</head>
+<body class="not-front">
+<header class="sos-header">
+<div class="main-nav-container">
+<div class="branding">
+<div>
+<div id="block-sos-branding">
+<a href="http://www.sos.alabama.gov" title="Home" rel="home" class="site-logo">
+<img src="https://www.sos.alabama.gov/sites/default/files/seal.png" alt="Home" />
+</a>
+<a href="http://www.sos.alabama.gov" title="Home" rel="home" class="site-name">Alabama Secretary of State</a>
+</div>
+</div>
+</div>
+<div class="nav-right-container">
+<div class="main-navigation">
+<div>
+<nav role="navigation" aria-labelledby="block-sos-main-menu-menu" id="block-sos-main-menu">
+<h2 class="visually-hidden">Main navigation</h2>
+<ul>
+<li>
+<a href="http://www.sos.alabama.gov/sos-office" title="SOS Office Information" data-drupal-link-system-path="node/3">SOS Office</a>
+<ul>
+<li>
+<a href="http://www.sos.alabama.gov/sos-office/biography" title="Biography of John Merrill" data-drupal-link-system-path="node/8">Biography</a>
+</li>
+<li>
+<a href="http://www.sos.alabama.gov/sos-office/history" title="History of SOS" data-drupal-link-system-path="node/9">History</a>
+</li>
+<li>
+<a href="https://www.alabamavotes.gov/olvr/default.aspx" title="Voter Registration">Voter Registration</a>
+</li>
+<li>
+<a href="/sos-office/event-scheduling" data-drupal-link-system-path="node/10">Event Scheduling</a>
+</li>
+<li>
+<a href="" title="Fees and Funds Information" data-drupal-link-system-path="&lt;front&gt;">Fees &amp; Funds</a>
+<ul>
+<li>
+<a href="http://www.sos.alabama.gov/sites/default/files/form-files/sosFeeSchedule.pdf" title="Fee Schedule">Fee Schedule</a>
+</li>
+<li>
+<a href="http://www.sos.alabama.gov/sites/default/files/form-files/sosFundsGuide.pdf" title="Funds Guide">Funds Guide</a>
+</li>
+<li>
+<a href="http://www.sos.alabama.gov/sites/default/files/form-files/sosVoterListFeeSchedule.pdf" title="Voter List Fee Schedule">Voter List Fee Schedule</a>
+</li>
+</ul>
+</li>
+<li>
+<a href="" title="Boards, Commissions, and Committees" data-drupal-link-system-path="&lt;front&gt;">Committees</a>
+<ul>
+<li>
+<a href="http://www.sos.alabama.gov/sites/default/files/form-files/sosBoardsCommissionsCommitteesGuide.pdf" title="Boards Commissions and Committees Guide">Committees Guide</a>
+</li>
+<li>
+<a href="http://www.sos.alabama.gov/sos-office/meeting-minutes" title="Meeting Minutes" data-drupal-link-system-path="sos-office/meeting-minutes">Meeting Minutes</a>
+</li>
+</ul>
+</li>
+<li>
+<a href="" title="Student Center" data-drupal-link-system-path="&lt;front&gt;">Student Center</a>
+<ul>
+<li>
+<a href="http://ali.state.al.us/capinterns.html" title="Alabama Legislative Internship">Legislative Internship</a>
+</li>
+<li>
+<a href="http://www.sos.alabama.gov/sites/default/files/form-files/sosInternshipPacket.pdf" title="Internship Application Packet">SOS Internship Application</a>
+</li>
+<li>
+<a href="https://www.sos.alabama.gov/index.php/student-poll-worker-internship" title="Student Poll Worker Internship">Student Poll Worker Internship</a>
+</li>
+<li>
+<a href="https://www.sos.alabama.gov/sos-office/kids" title="Kids Center">Kids Center</a>
+</li>
+</ul>
+</li>
+<li>
+<a href="http://www.sos.alabama.gov/sos-office/quarterly-annual-reports" data-drupal-link-system-path="node/1367">Quarterly &amp; Annual Reports</a>
+</li>
+</ul>
+</li>
+<li>
+<a href="http://www.alabamavotes.gov/" title="Alabama&#039;s Official Election Center">Elections</a>
+</li>
+<li>
+<a href="" title="Business Services" data-drupal-link-system-path="&lt;front&gt;">Services</a>
+<ul>
+<li>
+<a href="http://www.sos.alabama.gov/administrative-services" data-drupal-link-system-path="node/62">Administrative Services</a>
+<ul>
+<li>
+<a href="http://www.sos.alabama.gov/administrative-services/authentications" data-drupal-link-system-path="node/64">Authentications</a>
+</li>
+<li>
+<a href="http://www.sos.alabama.gov/administrative-services/trademarks" data-drupal-link-system-path="node/67">Trademarks</a>
+</li>
+<li>
+<a href="http://www.sos.alabama.gov/administrative-services/lands" data-drupal-link-system-path="node/67">Lands</a>
+</li>
+</ul>
+</li>
+<li>
+<a href="http://www.sos.alabama.gov/business-services" title="UCC Services" data-drupal-link-system-path="node/68">UCC Services</a>
+<ul>
+<li>
+<a href="http://www.sos.alabama.gov/business-services/ucc-home" title="Universal Commercial Code" data-drupal-link-system-path="node/69">UCC Home</a>
+</li>
+<li>
+<a href="https://www.alabamainteractive.org/ucc_filing/" title="Online UCC Filings">Online Filings</a>
+</li>
+<li>
+<a href="http://www.sos.alabama.gov/business-services/filing-fees" title="UCC Paper Form Filing Fees" data-drupal-link-system-path="node/70">Filing Fees</a>
+</li>
+<li>
+<a href="http://www.sos.alabama.gov/sites/default/files/form-files/aac820-4-3.pdf" title="Procedures">Procedures</a>
+</li>
+<li>
+<a href="http://www.sos.alabama.gov/business-services/ucc-downloads" title="UCC Downloads" target="" data-drupal-link-system-path="business-services/ucc-downloads">UCC Downloads</a>
+</li>
+</ul>
+</li>
+<li>
+<a href="http://www.sos.alabama.gov/business-entities" title="Business Entities" data-drupal-link-system-path="node/86">Business Entities</a>
+<ul>
+<li>
+<a href="https://www.alabamainteractive.org/sos/welcome.action" title="Online Business Services">Online Services</a>
+</li>
+<li>
+<a href="http://www.sos.alabama.gov/business-entities/domestic-corporations" title="Domestic Corporations" data-drupal-link-system-path="node/87">Domestic Corporations</a>
+</li>
+<li>
+<a href="http://www.sos.alabama.gov/business-entities/foreign-corporations" title="Foreign Corporations" data-drupal-link-system-path="node/88">Foreign Corporations</a>
+</li>
+<li>
+<a href="http://www.sos.alabama.gov/business-entities/homeowners-associations" title="Homeowner&#039;s Associations" data-drupal-link-system-path="node/89">Homeowner&#039;s Associations</a>
+</li>
+<li>
+<a href="http://www.sos.alabama.gov/business-entities/llcs" title="Domestic and Foreign LLCs" data-drupal-link-system-path="node/100">LLCs</a>
+</li>
+<li>
+<a href="http://www.sos.alabama.gov/business-entities/llps" title="Domestic and Foreign LLPs" data-drupal-link-system-path="node/103">LLPs</a>
+</li>
+<li>
+<a href="http://www.sos.alabama.gov/business-entities/business-downloads" target="" data-drupal-link-system-path="business-entities/business-downloads">Business Downloads</a>
+</li>
+</ul>
+<li>
+<a href="http://www.sos.alabama.gov/administrative-services/athlete-agents" data-drupal-link-system-path="node/63">Athlete Agents</a>
+</li>
+<li>
+<a href="https://www.sos.alabama.gov/node/1533" >Oath of Office Information Center</a>
+</li>
+<li>
+<a href="https://www.sos.alabama.gov/" title="Notaries" >Notaries</a>
+<ul>
+<li>
+<a href="https://www.sos.alabama.gov/administrative-services/notaries-public" title="Notaries Public">Notaries Public</a>
+</li>
+<li>
+<a href="https://www.sos.alabama.gov/administrative-services/civil-law-notaries" title="Civil Law Notaries" >Civil Law Notaries</a>
+</li>
+</ul>
+</li>
+</li>
+</ul>
+</li>
+<li>
+<a href="http://www.sos.alabama.gov/government-records" data-drupal-link-system-path="node/5">Records</a>
+<ul>
+<li>
+<a href="https://www.sos.alabama.gov/public-records-request" >Public Records Request</a>
+</li>
+<li>
+<a href="" data-drupal-link-system-path="&lt;front&gt;">Records Searches</a>
+<ul>
+<li>
+<a href="http://www.alabamavotes.gov/campaignFinanceReports.aspx?sm=voters">Campaign Finance Records</a>
+</li>
+<li>
+<a href="http://www.sos.alabama.gov/government-records/notary-public" data-drupal-link-system-path="node/94">Notary Public Records</a>
+</li>
+<li>
+<a href="http://www.sos.alabama.gov/government-records/business-entity-records" data-drupal-link-system-path="node/95">Business Entity Records</a>
+</li>
+<li>
+<a href="http://www.sos.alabama.gov/government-records/civil-law-notary-records" data-drupal-link-system-path="node/96">Civil Law Notary Records</a>
+</li>
+<li>
+<a href="http://www.sos.alabama.gov/government-records/ucc-records" data-drupal-link-system-path="node/97">UCC Records</a>
+</li>
+<li>
+<a href="http://www.sos.alabama.gov/government-records/land-records" data-drupal-link-system-path="node/98">Land Records</a>
+</li>
+<li>
+<a href="http://arc-sos.state.al.us/cgi/contrsrh.mbr/input" >Statutory Filings</a>
+</li>
+<li>
+<a href="http://www.sos.alabama.gov/government-records/trademark-records" data-drupal-link-system-path="node/99">Trademark Records</a>
+</li>
+<li>
+<a href="http://www.sos.alabama.gov/government-records/athlete-agent-search" data-drupal-link-system-path="node/101">Athlete Agents Search</a>
+</li>
+</ul>
+</li>
+<li>
+<a href="http://alisondb.legislature.state.al.us/alison/codeofalabama/1975/coatoc.htm">Code of Alabama</a>
+</li>
+<li>
+<a href="http://alisondb.legislature.state.al.us/alison/codeofalabama/constitution/1901/constitution1901_toc.htm">Constitution (1901)</a>
+</li>
+<li>
+<a href="http://arc-sos.state.al.us/cgi/elactnum.mbr/output">Proposed Amendments</a>
+</li>
+<li>
+<a href="http://www.sos.alabama.gov/government-records/records-disposition-authority" data-drupal-link-system-path="node/102">Disposition Authority</a>
+</li>
+<li>
+<a href="http://www.sos.alabama.gov/government-records/legislative-acts" data-drupal-link-system-path="node/90">Legislative Acts</a>
+</li>
+<li>
+<a href="http://www.alabamaadministrativecode.state.al.us/docs/sos/index.html">Administrative Code</a>
+<ul>
+<li>
+<a href="http://www.sos.alabama.gov/government-records/proposed-rules" data-drupal-link-system-path="node/91">Proposed Rules</a>
+</li>
+</ul>
+</li>
+<li>
+<a href="https://www.sos.alabama.gov/government-records/record-of-proclamations" >Record of Proclamations</a>
+</li>
+<li>
+<a href="http://www.sos.alabama.gov/city-county-lookup" data-drupal-link-system-path="node/1366">City - County Lookup</a>
+</li>
+</ul>
+</li>
+<li>
+<a href="http://www.sos.alabama.gov/contact" data-drupal-link-system-path="node/7">Contact</a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+<div class="social-icons">
+<ul>
+<li class="social-icon">
+<a href="https://www.facebook.com/alasecretaryofstate/"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+</li>
+<li class="social-icon">
+<a href="https://twitter.com/alasecofstate"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+</li>
+<li class="social-icon">
+<a href="https://www.youtube.com/user/alasecretaryofstate"><i class="fa fa-youtube-play" aria-hidden="true"></i></a>
+</li>
+<li class="social-icon">
+<a href="http://sos.alabama.gov/newsroom/rss"><i class="fa fa-rss" aria-hidden="true"></i></a>
+</li>
+<li class="social-toggle">
+<a href="#"><i class="fa fa-share-alt" aria-hidden="true"></i></a>
+</li>
+</ul>
+</div>
+</div>
+<div class="mobile-menu-toggle">
+<a href="#"><i class="fa fa-bars" aria-hidden="true"></i></a>
+</div>
+</div>
+<div class="mobile-menu">
+<div>
+<nav role="navigation" aria-labelledby="block-sos-main-menu-menu" id="block-sos-main-menu">
+<h2 class="visually-hidden">Main navigation</h2>
+<ul>
+<li>
+<a href="http://www.sos.alabama.gov/sos-office" title="SOS Office Information" data-drupal-link-system-path="node/3">SOS Office</a>
+<ul>
+<li>
+<a href="http://www.sos.alabama.gov/sos-office/biography" title="Biography of John Merrill" data-drupal-link-system-path="node/8">Biography</a>
+</li>
+<li>
+<a href="http://www.sos.alabama.gov/sos-office/history" title="History of SOS" data-drupal-link-system-path="node/9">History</a>
+</li>
+<li>
+<a href="https://www.alabamavotes.gov/olvr/default.aspx" title="Voter Registration">Voter Registration</a>
+</li>
+<li>
+<a href="/sos-office/event-scheduling" data-drupal-link-system-path="node/10">Event Scheduling</a>
+</li>
+<li>
+<a href="" title="Fees and Funds Information" data-drupal-link-system-path="&lt;front&gt;">Fees &amp; Funds</a>
+<ul>
+<li>
+<a href="http://www.sos.alabama.gov/sites/default/files/form-files/sosFeeSchedule.pdf" title="Fee Schedule">Fee Schedule</a>
+</li>
+<li>
+<a href="http://www.sos.alabama.gov/sites/default/files/form-files/sosFundsGuide.pdf" title="Funds Guide">Funds Guide</a>
+</li>
+<li>
+<a href="http://www.sos.alabama.gov/sites/default/files/form-files/sosVoterListFeeSchedule.pdf" title="Voter List Fee Schedule">Voter List Fee Schedule</a>
+</li>
+</ul>
+</li>
+<li>
+<a href="" title="Boards, Commissions, and Committees" data-drupal-link-system-path="&lt;front&gt;">Committees</a>
+<ul>
+<li>
+<a href="http://www.sos.alabama.gov/sites/default/files/form-files/sosBoardsCommissionsCommitteesGuide.pdf" title="Boards Commissions and Committees Guide">Committees Guide</a>
+</li>
+<li>
+<a href="http://www.sos.alabama.gov/sos-office/meeting-minutes" title="Meeting Minutes" data-drupal-link-system-path="sos-office/meeting-minutes">Meeting Minutes</a>
+</li>
+</ul>
+</li>
+<li>
+<a href="" title="Student Center" data-drupal-link-system-path="&lt;front&gt;">Student Center</a>
+<ul>
+<li>
+<a href="http://ali.state.al.us/capinterns.html" title="Alabama Legislative Internship">Legislative Internship</a>
+</li>
+<li>
+<a href="http://www.sos.alabama.gov/sites/default/files/form-files/sosInternshipPacket.pdf" title="Internship Application Packet">SOS Internship Application</a>
+</li>
+</ul>
+</li>
+<li>
+<a href="http://www.sos.alabama.gov/sos-office/quarterly-annual-reports" data-drupal-link-system-path="node/1367">Quarterly &amp; Annual Reports</a>
+</li>
+</ul>
+</li>
+<li>
+<a href="http://www.alabamavotes.gov/" title="Alabama&#039;s Official Election Center">Elections</a>
+</li>
+<li>
+<a href="" title="Business Services" data-drupal-link-system-path="&lt;front&gt;">Services</a>
+<ul>
+<li>
+<a href="http://www.sos.alabama.gov/administrative-services" data-drupal-link-system-path="node/62">Administrative Services</a>
+<ul>
+<li>
+<a href="http://www.sos.alabama.gov/administrative-services/authentications" data-drupal-link-system-path="node/64">Authentications</a>
+</li>
+<li>
+<a href="http://www.sos.alabama.gov/administrative-services/civil-law-notaries" data-drupal-link-system-path="node/66">Civil Law Notaries</a>
+</li>
+<li>
+<a href="http://www.sos.alabama.gov/administrative-services/notaries-public" data-drupal-link-system-path="node/65">Notaries Public</a>
+</li>
+<li>
+<a href="http://www.sos.alabama.gov/administrative-services/trademarks" data-drupal-link-system-path="node/67">Trademarks</a>
+</li>
+</ul>
+</li>
+<li>
+<a href="http://www.sos.alabama.gov/business-services" title="UCC Services" data-drupal-link-system-path="node/68">UCC Services</a>
+<ul>
+<li>
+<a href="http://www.sos.alabama.gov/business-services/ucc-home" title="Universal Commercial Code" data-drupal-link-system-path="node/69">UCC Home</a>
+</li>
+<li>
+<a href="https://www.alabamainteractive.org/ucc_filing/" title="Online UCC Filings">Online Filings</a>
+</li>
+<li>
+<a href="http://www.sos.alabama.gov/business-services/filing-fees" title="UCC Paper Form Filing Fees" data-drupal-link-system-path="node/70">Filing Fees</a>
+</li>
+<li>
+<a href="http://www.sos.alabama.gov/sites/default/files/form-files/aac820-4-3.pdf" title="Procedures">Procedures</a>
+</li>
+<li>
+<a href="http://www.sos.alabama.gov/business-services/ucc-downloads" title="UCC Downloads" target="" data-drupal-link-system-path="business-services/ucc-downloads">UCC Downloads</a>
+</li>
+</ul>
+</li>
+<li>
+<a href="http://www.sos.alabama.gov/business-entities" title="Business Entities" data-drupal-link-system-path="node/86">Business Entities</a>
+<ul>
+<li>
+<a href="https://www.alabamainteractive.org/sos/welcome.action" title="Online Business Services">Online Services</a>
+</li>
+<li>
+<a href="http://www.sos.alabama.gov/business-entities/domestic-corporations" title="Domestic Corporations" data-drupal-link-system-path="node/87">Domestic Corporations</a>
+</li>
+<li>
+<a href="http://www.sos.alabama.gov/business-entities/foreign-corporations" title="Foreign Corporations" data-drupal-link-system-path="node/88">Foreign Corporations</a>
+</li>
+<li>
+<a href="http://www.sos.alabama.gov/business-entities/homeowners-associations" title="Homeowner&#039;s Associations" data-drupal-link-system-path="node/89">Homeowner&#039;s Associations</a>
+</li>
+<li>
+<a href="http://www.sos.alabama.gov/business-entities/fees" title="Fees" data-drupal-link-system-path="node/93">Fees</a>
+</li>
+<li>
+<a href="http://www.sos.alabama.gov/business-entities/llcs" title="Domestic and Foreign LLCs" data-drupal-link-system-path="node/100">LLCs</a>
+</li>
+<li>
+<a href="http://www.sos.alabama.gov/business-entities/llps" title="Domestic and Foreign LLPs" data-drupal-link-system-path="node/103">LLPs</a>
+</li>
+<li>
+<a href="http://www.sos.alabama.gov/business-entities/business-downloads" target="" data-drupal-link-system-path="business-entities/business-downloads">Business Downloads</a>
+</li>
+</ul>
+<li>
+<a href="http://www.sos.alabama.gov/administrative-services/athlete-agents" data-drupal-link-system-path="node/63">Athlete Agents</a>
+</li>
+</li>
+</ul>
+</li>
+<li>
+<a href="http://www.sos.alabama.gov/government-records" data-drupal-link-system-path="node/5">Records</a>
+<ul>
+<li>
+<a href="" data-drupal-link-system-path="&lt;front&gt;">Records Searches</a>
+<ul>
+<li>
+<a href="http://www.alabamavotes.gov/campaignFinanceReports.aspx?sm=voters">Campaign Finance Records</a>
+</li>
+<li>
+<a href="http://www.sos.alabama.gov/government-records/notary-public" data-drupal-link-system-path="node/94">Notary Public Records</a>
+</li>
+<li>
+<a href="http://www.sos.alabama.gov/government-records/business-entity-records" data-drupal-link-system-path="node/95">Business Entity Records</a>
+</li>
+<li>
+<a href="http://www.sos.alabama.gov/government-records/civil-law-notary-records" data-drupal-link-system-path="node/96">Civil Law Notary Records</a>
+</li>
+<li>
+<a href="http://www.sos.alabama.gov/government-records/ucc-records" data-drupal-link-system-path="node/97">UCC Records</a>
+</li>
+<li>
+<a href="http://www.sos.alabama.gov/government-records/land-records" data-drupal-link-system-path="node/98">Land Records</a>
+</li>
+<li>
+<a href="http://www.sos.alabama.gov/government-records/trademark-records" data-drupal-link-system-path="node/99">Trademark Records</a>
+</li>
+<li>
+<a href="http://www.sos.alabama.gov/government-records/athlete-agent-search" data-drupal-link-system-path="node/101">Athlete Agents Search</a>
+</li>
+</ul>
+</li>
+<li>
+<a href="http://alisondb.legislature.state.al.us/alison/codeofalabama/1975/coatoc.htm">Code of Alabama</a>
+</li>
+<li>
+<a href="http://alisondb.legislature.state.al.us/alison/codeofalabama/constitution/1901/constitution1901_toc.htm">Constitution (1901)</a>
+</li>
+<li>
+<a href="http://www.sos.alabama.gov/government-records/records-disposition-authority" data-drupal-link-system-path="node/102">Disposition Authority</a>
+</li>
+<li>
+<a href="http://arc-sos.state.al.us/cgi/elactnum.mbr/output">Proposed Amendments</a>
+</li>
+<li>
+<a href="http://www.sos.alabama.gov/government-records/legislative-acts" data-drupal-link-system-path="node/90">Legislative Acts</a>
+</li>
+<li>
+<a href="http://www.alabamaadministrativecode.state.al.us/docs/sos/index.html">Administrative Code</a>
+<ul>
+<li>
+<a href="http://www.sos.alabama.gov/government-records/proposed-rules" data-drupal-link-system-path="node/91">Proposed Rules</a>
+</li>
+</ul>
+</li>
+<li>
+<a href="http://www.sos.alabama.gov/city-county-lookup" data-drupal-link-system-path="node/1366">City - County Lookup</a>
+</li>
+</ul>
+</li>
+<li>
+<a href="http://www.sos.alabama.gov/contact" data-drupal-link-system-path="node/7">Contact</a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+<script src="/css/aitest.js"></script>
+</header>
+<!-- Start Page Content //-->
+<main role="main" class="page">
+<a id="main-content" tabindex="-1"></a>
+<div class="main-content">
+<div class="page-banner">
+<div class="container">
+<div>
+<div id="block-sos-page-title">
+<h1 class="js-quickedit-page-title">Business Entity Records</h1>
+</div>
+<div id="block-sos-breadcrumbs">
+<nav role="navigation" aria-labelledby="system-breadcrumb">
+<h2 class="visually-hidden">Breadcrumb</h2>
+<ol>
+<li>
+<a href="http://www.sos.alabama.gov">Home</a>
+</li>
+<li>
+<a href="http://www.sos.alabama.gov/government-records">Government Records</a>
+</li>
+<li>
+Business Entity Records
+</li>
+</ol>
+</nav>
+</div>
+</div>
+</div>
+</div>
+<div class="container main-sidebar">
+<div class="content full">
+<div>
+<div id="block-sos-content">
+<div class="views-element-container">
+<div class="js-view-dom-id-ebf276740bf00a58475dfaf81711812ba4f5cc9d3d3f63ff74a6741de816a3d9">
+<div align="center">
+<table>
+<thead>
+<tr>
+<th class="views-field views-field-title whiteLinkText" width="14%">
+<a href="output?s=1&search=P %26 CK LLC&type=ALL&status=ALL&place=ALL&city=&order=num&hld=&dir=">Entity ID</a>
+</th>
+<th class="views-field views-field-title whiteLinkText" width="34%">
+<a href="output?s=1&search=P %26 CK LLC&type=ALL&status=ALL&place=ALL&city=&order=name&hld=&dir=">Entity Name</a>
+</th>
+<th class="views-field views-field-title whiteLinkText" width="18%">
+<a href="output?s=1&search=P %26 CK LLC&type=ALL&status=ALL&place=ALL&city=&order=city&hld=&dir=">City</a>
+</th>
+<th class="views-field views-field-title whiteLinkText" width="21%">
+<a href="output?s=1&search=P %26 CK LLC&type=ALL&status=ALL&place=ALL&city=&order=type&hld=&dir=">Type</a>
+</th>
+<th class="views-field views-field-title whiteLinkText" width="13%">
+<a href="output?s=1&search=P %26 CK LLC&type=ALL&status=ALL&place=ALL&city=&order=stat&hld=&dir=">Status</a>
+</th>
+</tr>
+</thead>
+<tr>
+<td><a href="/cgi/corpdetail.mbr/detail?corp=000356394&page=name&file=&type=ALL&status=ALL&place=ALL&city=">000-356-394</a></td>
+<td><a href="/cgi/corpdetail.mbr/detail?corp=000356394&page=name&file=&type=ALL&status=ALL&place=ALL&city=" style="color: black;">P & CK LLC</a></td>
+<td>Not Provided</td>
+<td>Domestic Limited Liability Company</td>
+<td>Exists</td>
+</tr>
+<tr>
+<td><a href="/cgi/corpdetail.mbr/detail?corp=000904017&page=name&file=&type=ALL&status=ALL&place=ALL&city=">000-904-017</a></td>
+<td><a href="/cgi/corpdetail.mbr/detail?corp=000904017&page=name&file=&type=ALL&status=ALL&place=ALL&city=" style="color: black;">A Bushel And A Peck Boutique LLC</a></td>
+<td>Not Provided</td>
+<td>Domestic Limited Liability Company</td>
+<td>Exists</td>
+</tr>
+<tr>
+<td><a href="/cgi/corpdetail.mbr/detail?corp=000657729&page=name&file=&type=ALL&status=ALL&place=ALL&city=">000-657-729</a></td>
+<td><a href="/cgi/corpdetail.mbr/detail?corp=000657729&page=name&file=&type=ALL&status=ALL&place=ALL&city=" style="color: black;">A&A Dump Truck & Backhoe Service, L.L.C.</a></td>
+<td>EIGHT MILE, AL</td>
+<td>Domestic Limited Liability Company</td>
+<td>Exists</td>
+</tr>
+<tr>
+<td><a href="/cgi/corpdetail.mbr/detail?corp=000574359&page=name&file=&type=ALL&status=ALL&place=ALL&city=">000-574-359</a></td>
+<td><a href="/cgi/corpdetail.mbr/detail?corp=000574359&page=name&file=&type=ALL&status=ALL&place=ALL&city=" style="color: black;">A & A Quick Stop LLC</a></td>
+<td>Not Provided</td>
+<td>Domestic Limited Liability Company</td>
+<td>Exists</td>
+</tr>
+<tr>
+<td><a href="/cgi/corpdetail.mbr/detail?corp=000301522&page=name&file=D&type=ALL&status=ALL&place=ALL&city=">000-301-522</a></td>
+<td><a href="/cgi/corpdetail.mbr/detail?corp=000301522&page=name&file=D&type=ALL&status=ALL&place=ALL&city=" style="color: black;">A & A Tharptown Quickstop, LLC</a></td>
+<td>RUSSELLVILLE, AL</td>
+<td>Domestic Limited Liability Company</td>
+<td>Dissolved</td>
+</tr>
+<tr>
+<td><a href="/cgi/corpdetail.mbr/detail?corp=000854682&page=name&file=&type=ALL&status=ALL&place=ALL&city=">000-854-682</a></td>
+<td><a href="/cgi/corpdetail.mbr/detail?corp=000854682&page=name&file=&type=ALL&status=ALL&place=ALL&city=" style="color: black;">A&A Trucking and Transportation LLC</a></td>
+<td>Not Provided</td>
+<td>Domestic Limited Liability Company</td>
+<td>Exists</td>
+</tr>
+<tr>
+<td><a href="/cgi/corpdetail.mbr/detail?corp=001006144&page=name&file=&type=ALL&status=ALL&place=ALL&city=">001-006-144</a></td>
+<td><a href="/cgi/corpdetail.mbr/detail?corp=001006144&page=name&file=&type=ALL&status=ALL&place=ALL&city=" style="color: black;">A & B DUMP TRUCK SERVICE, LLC</a></td>
+<td>Not Provided</td>
+<td>Domestic Limited Liability Company</td>
+<td>Exists</td>
+</tr>
+<tr>
+<td><a href="/cgi/corpdetail.mbr/detail?corp=000591226&page=name&file=&type=ALL&status=ALL&place=ALL&city=">000-591-226</a></td>
+<td><a href="/cgi/corpdetail.mbr/detail?corp=000591226&page=name&file=&type=ALL&status=ALL&place=ALL&city=" style="color: black;">A & B Quick Stop, LLC</a></td>
+<td>Not Provided</td>
+<td>Domestic Limited Liability Company</td>
+<td>Exists</td>
+</tr>
+<tr>
+<td><a href="/cgi/corpdetail.mbr/detail?corp=000433098&page=name&file=&type=ALL&status=ALL&place=ALL&city=">000-433-098</a></td>
+<td><a href="/cgi/corpdetail.mbr/detail?corp=000433098&page=name&file=&type=ALL&status=ALL&place=ALL&city=" style="color: black;">A&C Jackson Group, LLC</a></td>
+<td>HOOVER, AL</td>
+<td>Domestic Limited Liability Company</td>
+<td>Exists</td>
+</tr>
+<tr>
+<td><a href="/cgi/corpdetail.mbr/detail?corp=000506696&page=name&file=&type=ALL&status=ALL&place=ALL&city=">000-506-696</a></td>
+<td><a href="/cgi/corpdetail.mbr/detail?corp=000506696&page=name&file=&type=ALL&status=ALL&place=ALL&city=" style="color: black;">A&F Express Trucking LLC</a></td>
+<td>Not Provided</td>
+<td>Domestic Series Limited Liability Company</td>
+<td>Exists</td>
+</tr>
+<tr>
+<td><a href="/cgi/corpdetail.mbr/detail?corp=001040207&page=name&file=&type=ALL&status=ALL&place=ALL&city=">001-040-207</a></td>
+<td><a href="/cgi/corpdetail.mbr/detail?corp=001040207&page=name&file=&type=ALL&status=ALL&place=ALL&city=" style="color: black;">A & K  ENTERPRISE TRUCKING, LLC</a></td>
+<td>Not Provided</td>
+<td>Domestic Limited Liability Company</td>
+<td>Exists</td>
+</tr>
+<tr>
+<td><a href="/cgi/corpdetail.mbr/detail?corp=000463087&page=name&file=&type=ALL&status=ALL&place=ALL&city=">000-463-087</a></td>
+<td><a href="/cgi/corpdetail.mbr/detail?corp=000463087&page=name&file=&type=ALL&status=ALL&place=ALL&city=" style="color: black;">A & K Package Store, L.L.C.</a></td>
+<td>BIRMINGHAM, AL</td>
+<td>Domestic Limited Liability Company</td>
+<td>Exists</td>
+</tr>
+<tr>
+<td><a href="/cgi/corpdetail.mbr/detail?corp=000955296&page=name&file=&type=ALL&status=ALL&place=ALL&city=">000-955-296</a></td>
+<td><a href="/cgi/corpdetail.mbr/detail?corp=000955296&page=name&file=&type=ALL&status=ALL&place=ALL&city=" style="color: black;">A & P TRUCKING COMPANY, LLC</a></td>
+<td>Not Provided</td>
+<td>Domestic Limited Liability Company</td>
+<td>Exists</td>
+</tr>
+<tr>
+<td><a href="/cgi/corpdetail.mbr/detail?corp=000427388&page=name&file=D&type=ALL&status=ALL&place=ALL&city=">000-427-388</a></td>
+<td><a href="/cgi/corpdetail.mbr/detail?corp=000427388&page=name&file=D&type=ALL&status=ALL&place=ALL&city=" style="color: black;">A & P Trucking LLC</a></td>
+<td>GREENSBORO, AL</td>
+<td>Domestic Limited Liability Company</td>
+<td>Dissolved</td>
+</tr>
+<tr>
+<td><a href="/cgi/corpdetail.mbr/detail?corp=000845755&page=name&file=&type=ALL&status=ALL&place=ALL&city=">000-845-755</a></td>
+<td><a href="/cgi/corpdetail.mbr/detail?corp=000845755&page=name&file=&type=ALL&status=ALL&place=ALL&city=" style="color: black;">A & P TRUCKING, LLC</a></td>
+<td>Not Provided</td>
+<td>Domestic Limited Liability Company</td>
+<td>Exists</td>
+</tr>
+<tr>
+<td><a href="/cgi/corpdetail.mbr/detail?corp=000377716&page=name&file=&type=ALL&status=ALL&place=ALL&city=">000-377-716</a></td>
+<td><a href="/cgi/corpdetail.mbr/detail?corp=000377716&page=name&file=&type=ALL&status=ALL&place=ALL&city=" style="color: black;">A & R Quick Stop LLC</a></td>
+<td>Not Provided</td>
+<td>Domestic Limited Liability Company</td>
+<td>Exists</td>
+</tr>
+<tr>
+<td><a href="/cgi/corpdetail.mbr/detail?corp=001106604&page=name&file=&type=ALL&status=ALL&place=ALL&city=">001-106-604</a></td>
+<td><a href="/cgi/corpdetail.mbr/detail?corp=001106604&page=name&file=&type=ALL&status=ALL&place=ALL&city=" style="color: black;">ABM Trucking & Dispatch LLC</a></td>
+<td>Not Provided</td>
+<td>Domestic Limited Liability Company</td>
+<td>Exists</td>
+</tr>
+<tr>
+<td><a href="/cgi/corpdetail.mbr/detail?corp=000294830&page=name&file=&type=ALL&status=ALL&place=ALL&city=">000-294-830</a></td>
+<td><a href="/cgi/corpdetail.mbr/detail?corp=000294830&page=name&file=&type=ALL&status=ALL&place=ALL&city=" style="color: black;">Absolute Truck & Equipment Sales, LLC</a></td>
+<td>Not Provided</td>
+<td>Domestic Limited Liability Company</td>
+<td>Exists</td>
+</tr>
+<tr>
+<td><a href="/cgi/corpdetail.mbr/detail?corp=000873172&page=name&file=&type=ALL&status=ALL&place=ALL&city=">000-873-172</a></td>
+<td><a href="/cgi/corpdetail.mbr/detail?corp=000873172&page=name&file=&type=ALL&status=ALL&place=ALL&city=" style="color: black;">AC TRANSPORTAION AND TRUCKING LLC</a></td>
+<td>Not Provided</td>
+<td>Domestic Limited Liability Company</td>
+<td>Exists</td>
+</tr>
+<tr>
+<td><a href="/cgi/corpdetail.mbr/detail?corp=000960442&page=name&file=&type=ALL&status=ALL&place=ALL&city=">000-960-442</a></td>
+<td><a href="/cgi/corpdetail.mbr/detail?corp=000960442&page=name&file=&type=ALL&status=ALL&place=ALL&city=" style="color: black;">Ace & Buck Transportation LLC</a></td>
+<td>Fort Mitchell, AL</td>
+<td>Foreign Limited Liability Company</td>
+<td>Exists</td>
+</tr>
+<tr>
+<td><a href="/cgi/corpdetail.mbr/detail?corp=000627900&page=name&file=&type=ALL&status=ALL&place=ALL&city=">000-627-900</a></td>
+<td><a href="/cgi/corpdetail.mbr/detail?corp=000627900&page=name&file=&type=ALL&status=ALL&place=ALL&city=" style="color: black;">Ace Backhoe and Equipment Services, LLC</a></td>
+<td>Not Provided</td>
+<td>Domestic Limited Liability Company</td>
+<td>Exists</td>
+</tr>
+<tr>
+<td><a href="/cgi/corpdetail.mbr/detail?corp=000453071&page=name&file=&type=ALL&status=ALL&place=ALL&city=">000-453-071</a></td>
+<td><a href="/cgi/corpdetail.mbr/detail?corp=000453071&page=name&file=&type=ALL&status=ALL&place=ALL&city=" style="color: black;">Acker Appraisal and Associates LLC</a></td>
+<td>BIRMINGHAM, AL</td>
+<td>Domestic Limited Liability Company</td>
+<td>Exists</td>
+</tr>
+<tr>
+<td><a href="/cgi/corpdetail.mbr/detail?corp=148076&page=name&file=Q&type=ALL&status=ALL&place=ALL&city=">N/A</a></td>
+<td><a href="/cgi/corpdetail.mbr/detail?corp=148076&page=name&file=Q&type=ALL&status=ALL&place=ALL&city=" style="color: black;">Acklin & Perry Investment Group LLC</a></td>
+<td>Huntsville, AL</td>
+<td>Domestic Limited Liability Company</td>
+<td>Name Reservation</td>
+</tr>
+<tr>
+<td><a href="/cgi/corpdetail.mbr/detail?corp=000303105&page=name&file=&type=ALL&status=ALL&place=ALL&city=">000-303-105</a></td>
+<td><a href="/cgi/corpdetail.mbr/detail?corp=000303105&page=name&file=&type=ALL&status=ALL&place=ALL&city=" style="color: black;">Action Plumbing and Backflow Services, LLC</a></td>
+<td>BIRMINGHAM, AL</td>
+<td>Domestic Limited Liability Company</td>
+<td>Exists</td>
+</tr>
+<tr>
+<td><a href="/cgi/corpdetail.mbr/detail?corp=000020060&page=name&file=&type=ALL&status=ALL&place=ALL&city=">000-020-060</a></td>
+<td><a href="/cgi/corpdetail.mbr/detail?corp=000020060&page=name&file=&type=ALL&status=ALL&place=ALL&city=" style="color: black;">Action Truck and Equipment Sales, LLC</a></td>
+<td>CULLMAN, AL</td>
+<td>Domestic Limited Liability Company</td>
+<td>Exists</td>
+</tr>
+<tr>
+<td colspan="5" class="aiSosPageLinkBar">
+<span style="font-weight: bold; padding-left: 5px; padding-right: 5px;">1</span>
+<a class="aiSosPageLinks" href="output?s=26&search=P %26 CK LLC&type=ALL&status=ALL&place=ALL&city=&order=default&hld=&dir=&page=Y">2</a>
+<a class="aiSosPageLinks" href="output?s=51&search=P %26 CK LLC&type=ALL&status=ALL&place=ALL&city=&order=default&hld=&dir=&page=Y">3</a>
+<a class="aiSosPageLinks" href="output?s=76&search=P %26 CK LLC&type=ALL&status=ALL&place=ALL&city=&order=default&hld=&dir=&page=Y">4</a>
+<a class="aiSosPageLinks" href="output?s=101&search=P %26 CK LLC&type=ALL&status=ALL&place=ALL&city=&order=default&hld=&dir=&page=Y">5</a>
+<a class="aiSosPageLinks" href="output?s=126&search=P %26 CK LLC&type=ALL&status=ALL&place=ALL&city=&order=default&hld=&dir=&page=Y">6</a>
+<a class="aiSosPageLinks" href="output?s=26&search=P %26 CK LLC&type=ALL&status=ALL&place=ALL&city=&order=default&hld=&dir=&page=Y">
+Next >>
+</a>
+</td>
+</tr>
+</table>
+<br>
+<a href="/cgi/corpname.mbr/input"><input type="button" value="New Search" /></a>
+<br>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<section class="footer">
+<div class="container">
+<div>
+<nav role="navigation" aria-labelledby="block-sos-footer-menu" id="block-sos-footer">
+<h2 class="visually-hidden">Footer menu</h2>
+<ul class="footer-menu">
+<li>
+<a href="http://www.info.alabama.gov/">Alabama Directory</a>
+</li>
+<li>
+<a href="https://www.alabamainteractive.org/sos">Online Services</a>
+</li>
+<li>
+<a href="http://alabama.gov">Alabama.gov</a>
+</li>
+<li>
+<a href="http://isd.alabama.gov/isd/statements.aspx">Statements &amp; Policies</a>
+</li>
+<li>
+<a href="http://www.sos.alabama.gov/rss/newsRSS.aspx">Feeds</a>
+</li>
+<li>
+<a href="http://www.sos.alabama.gov/contact" data-drupal-link-system-path="node/7">Contact Us</a>
+</li>
+</ul>
+</nav>
+</div>
+<div class="contact-menu">
+<ul>
+<li>P.O. Box 5616 Montgomery, AL 36103-5616</li>
+<li>Phone: (334) 242-7200</li>
+<li>Fax: (334) 242-4993</li>
+</ul>
+</div>
+</div>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HEFYBZ2QN2"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-HEFYBZ2QN2');
+</script>
+</section>
+</BODY>
+</HTML>

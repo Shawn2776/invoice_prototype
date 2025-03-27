@@ -3,6 +3,8 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { useFormStore } from "@/lib/store";
+import { FaChevronRight } from "react-icons/fa";
+import { MdOutlineKeyboardReturn } from "react-icons/md";
 
 import {
   ShoppingBag,
@@ -15,7 +17,7 @@ import {
   Store,
   Ellipsis,
 } from "lucide-react";
-import ProgressBar from "./ProgressBar";
+import { Button } from "@/components/ui/button";
 
 const businessCategories = [
   { id: "retail-misc", name: "Retail - Miscellaneous", icon: ShoppingBag },
@@ -87,7 +89,7 @@ export default function BusinessCategoryStep() {
                 selected === category.id
                   ? "bg-primary text-white"
                   : "bg-card text-card-foreground"
-              } hover:bg-primary hover:text-white hover:cursor-pointer ${
+              } hover:bg-primary/50 hover:text-black hover:cursor-pointer ${
                 category.id === "other" ? "rounded-b-md" : ""
               }`}
               onClick={() => handleSelect(category)}
@@ -96,16 +98,19 @@ export default function BusinessCategoryStep() {
                 <category.icon className="w-6 h-6" />
                 <span className="text-left">{category.name}</span>
               </div>
-              <span>&gt;</span>
+              <span>
+                <FaChevronRight />
+              </span>
             </button>
           ))}
         </div>
-        <button
+        <Button
+          variant=""
           onClick={handleBack}
-          className="mt-4 px-4 py-2 text-white bg-gray-500 rounded-md hover:bg-gray-600 transition"
+          className="p-4 w-1/2 flex items-center gap-2 hover:cursor-pointer rounded-none"
         >
-          Back
-        </button>
+          <MdOutlineKeyboardReturn /> Back
+        </Button>
       </div>
     </div>
   );

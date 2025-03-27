@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { useFormStore } from "@/lib/store";
 import { businessTypeSchema } from "@/lib/validation";
+import { FaChevronRight } from "react-icons/fa";
 
 import {
   Briefcase,
@@ -81,7 +82,7 @@ export default function BusinessTypeStep() {
                 selected === type.id
                   ? "bg-primary text-white"
                   : "bg-card text-card-foreground"
-              } hover:bg-primary hover:text-white hover:cursor-pointer ${
+              } hover:bg-primary/50 hover:text-black hover:cursor-pointer ${
                 type.id === "unincorporated" ? "rounded-b-md" : ""
               }`}
               onClick={() => handleSelect(type)}
@@ -90,7 +91,9 @@ export default function BusinessTypeStep() {
                 <type.icon className="w-6 h-6" />
                 <span className="text-left">{type.name}</span>
               </div>
-              <span>&gt;</span>
+              <span>
+                <FaChevronRight />
+              </span>
             </button>
           ))}
         </div>

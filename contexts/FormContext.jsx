@@ -22,19 +22,17 @@ export function FormProvider({ children }) {
   };
 
   const nextStep = (currentStep) => {
-    const nextPath = formSteps[currentStep];
-    if (nextPath) {
-      router.push(nextPath);
-    }
+    if (!formSteps[currentStep]) return; // Prevent errors on invalid steps
+    router.push(formSteps[currentStep]);
   };
 
   const prevStep = (currentStep) => {
-    const steps = Object.entries(formSteps);
-    const currentIndex = steps.findIndex(([step]) => step === currentStep);
+    const steps = Object.keys(formSteps);
+    const currentIndex = steps.indexOf(currentStep);
 
     if (currentIndex > 0) {
-      const prevStep = steps[currentIndex - 1][0];
-      router.push(`/form/${prevStep}`);
+      const prevStepKey = steps[currentIndex - 1];
+      router.push(formSteps[prevStepKey]); // Ensure it uses the defined route
     }
   };
 
