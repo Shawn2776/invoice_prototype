@@ -18,6 +18,7 @@ import {
   Ellipsis,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { businessCategorySchema } from "@/lib/validation";
 
 const businessCategories = [
   { id: "retail-misc", name: "Retail - Miscellaneous", icon: ShoppingBag },
@@ -44,6 +45,8 @@ const businessCategories = [
 ];
 
 export default function BusinessCategoryStep() {
+  const [errorMessage, setErrorMessage] = useState("");
+
   const router = useRouter();
   const { formData, updateFormData, setStep, step } = useFormStore();
   const [selected, setSelected] = useState(formData.businessCategory || "");
@@ -54,15 +57,33 @@ export default function BusinessCategoryStep() {
     }
   }, [formData.businessCategory]);
 
-  const handleSelect = (type) => {
-    setSelected(type.id);
-    updateFormData({ businessType: type.id });
+  const handleSelect = async (category) => {
+    setErrorMessage("");
+    const client = businessCategorySchema.safeParse({
+      businessCategory: category.id,
+    });
+    if (!client.success) {
+      setErrorMessage(client.error.format().businessCategory?._errors?.[0]);
+      return;
+    }
 
-    // Move forward
-    setTimeout(() => {
-      setStep(step + 1); // Correctly increments
-      router.push(`/new-user/${step + 1}`);
-    }, 300);
+    const res = await fetch("/api/new-user/validate/category", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ businessCategory: category.id }),
+    });
+
+    if (!res.ok) {
+      const { error } = await res.json();
+      const bizErr = error?.businessCategory?._errors?.[0];
+      setErrorMessage(bizErr || "Server validation failed");
+      return;
+    }
+
+    setSelected(category.id);
+    updateFormData({ businessCategory: category.id });
+    setStep(step + 1);
+    router.push(`/new-user/${step + 1}`);
   };
 
   const handleBack = () => {
@@ -81,6 +102,9 @@ export default function BusinessCategoryStep() {
         <p className="text-gray-300 text-left w-full bg-primary px-4 border-b pb-8">
           Choose what best describes your business
         </p>
+        {errorMessage && (
+          <p className="text-red-600 p-4 pb-4 text-sm">{errorMessage}</p>
+        )}
         <div className="grid grid-cols-1 w-full rounded-b-md">
           {businessCategories.map((category) => (
             <button

@@ -40,9 +40,16 @@ const businessTypes = [
     name: "Unincorporated Business Association or Organization",
     icon: UsersRound,
   },
+  {
+    id: "individual",
+    name: "Individual / Sole Trader",
+    icon: Briefcase, // or swap for a “person” icon
+  },
 ];
 
 export default function BusinessTypeStep() {
+  const [errorMessage, setErrorMessage] = useState("");
+
   const router = useRouter();
   const { formData, updateFormData, setStep, step } = useFormStore();
   const [selected, setSelected] = useState(formData.businessType || "");
@@ -54,15 +61,38 @@ export default function BusinessTypeStep() {
     }
   }, [formData.businessType]);
 
-  const handleSelect = (type) => {
+  const handleSelect = async (type) => {
+    const clientResult = businessTypeSchema.safeParse({
+      businessType: type.id,
+    });
+    if (!clientResult.success) {
+      console.error("Invalid business type", clientResult.error.format());
+      return;
+    }
+
+    // Server‑side validation only (no save)
+    const res = await fetch(`/api/new-user/validate`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ businessType: type.id }),
+    });
+
+    if (!res.ok) {
+      const { error } = await res.json();
+
+      const bizError = error?.businessType?._errors?.[0];
+      const fallback =
+        typeof error === "string" ? error : "Server validation failed";
+      setErrorMessage(bizError || fallback);
+      return;
+    }
+
+    // Both client & server validations passed
     setSelected(type.id);
     updateFormData({ businessType: type.id });
 
-    // Move forward
-    setTimeout(() => {
-      setStep(step + 1); // Correctly increments
-      router.push(`/new-user/${step + 1}`);
-    }, 300);
+    setStep(step + 1);
+    router.push(`/new-user/${step + 1}`);
   };
 
   return (
@@ -74,16 +104,19 @@ export default function BusinessTypeStep() {
         <p className="text-gray-300 text-left w-full bg-primary px-4 border-b pb-8">
           Select the legal type of your business
         </p>
+        {errorMessage && (
+          <p className="text-red-600 p-4 pb-4 text-sm">{errorMessage}</p>
+        )}
         <div className="grid grid-cols-1 w-full rounded-b-md">
           {businessTypes.map((type) => (
             <button
               key={type.id}
-              className={`p-10 flex justify-between items-center border-b transition-all duration-200 ${
+              className={`h-20 flex p-4 justify-between items-center border-b transition-all duration-200 ${
                 selected === type.id
                   ? "bg-primary text-white"
                   : "bg-card text-card-foreground"
               } hover:bg-primary/50 hover:text-black hover:cursor-pointer ${
-                type.id === "unincorporated" ? "rounded-b-md" : ""
+                type.id === "individual" ? "rounded-b-md" : ""
               }`}
               onClick={() => handleSelect(type)}
             >
@@ -91,9 +124,7 @@ export default function BusinessTypeStep() {
                 <type.icon className="w-6 h-6" />
                 <span className="text-left">{type.name}</span>
               </div>
-              <span>
-                <FaChevronRight />
-              </span>
+              <FaChevronRight />
             </button>
           ))}
         </div>

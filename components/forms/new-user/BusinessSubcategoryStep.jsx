@@ -20,11 +20,13 @@ const subcategories = {
 };
 
 export default function BusinessSubcategoryStep() {
+  const [errorMessage, setErrorMessage] = useState("");
+
   const router = useRouter();
   const { formData, updateFormData, setStep, step } = useFormStore();
   const [selected, setSelected] = useState(formData.businessSubcategory || "");
   const [customSubcategory, setCustomSubcategory] = useState("");
-  const category = formData.businessType;
+  const category = formData.businessCategory;
 
   useEffect(() => {
     if (formData.businessSubcategory) {
@@ -32,9 +34,24 @@ export default function BusinessSubcategoryStep() {
     }
   }, [formData.businessSubcategory]);
 
-  const handleSelect = (subcategory) => {
+  const handleSelect = async (subcategory) => {
     setSelected(subcategory);
     updateFormData({ businessSubcategory: subcategory });
+
+    const res = await fetch("/api/new-user/validate/subcategory", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ businessSubcategory: subcategory }),
+    });
+
+    if (!res.ok) {
+      const { error } = await res.json();
+      const msg =
+        error.businessSubcategory?._errors?.[0] || "Invalid subcategory";
+      setErrorMessage(msg);
+      return;
+    }
+
     setTimeout(() => {
       setStep(step + 1);
       router.push(`/new-user/${step + 1}`);
@@ -46,11 +63,25 @@ export default function BusinessSubcategoryStep() {
     updateFormData({ businessSubcategory: event.target.value });
   };
 
-  const handleNext = () => {
-    if (selected || customSubcategory.trim()) {
-      setStep(step + 1);
-      router.push(`/new-user/${step + 1}`);
+  const handleNext = async () => {
+    setErrorMessage("");
+    const value = selected || customSubcategory.trim();
+    const res = await fetch("/api/new-user/validate/subcategory", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ businessSubcategory: value }),
+    });
+
+    if (!res.ok) {
+      const { error } = await res.json();
+      setErrorMessage(
+        error.businessSubcategory?._errors?.[0] || "Invalid subcategory"
+      );
+      return;
     }
+
+    setStep(step + 1);
+    router.push(`/new-user/${step + 1}`);
   };
 
   const handleBack = () => {
@@ -67,6 +98,9 @@ export default function BusinessSubcategoryStep() {
         <p className="text-gray-300 text-left w-full bg-primary px-4 border-b pb-8">
           Choose the subcategory that best fits your business
         </p>
+        {errorMessage && (
+          <p className="text-red-600 p-4 pb-4 text-sm">{errorMessage}</p>
+        )}
         <div className="grid grid-cols-1 w-full rounded-b-md">
           {subcategories[category]?.map((sub) => (
             <button
